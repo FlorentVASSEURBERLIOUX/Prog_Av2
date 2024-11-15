@@ -37,7 +37,7 @@ class PiMonteCarlo {
 }
 public class Assignment102 {
 	public static void main(String[] args) {
-		PiMonteCarlo PiVal = new PiMonteCarlo(100000);
+		PiMonteCarlo PiVal = new PiMonteCarlo(10000000);
 		long startTime = System.currentTimeMillis();
 		double value = PiVal.getPi();
 		long stopTime = System.currentTimeMillis();
