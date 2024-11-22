@@ -74,3 +74,15 @@ Le code dépends de l'API conccurent et en utilise les concepts :
 
 Assignement102 est un programme de paradigyme dit "Master/Worker". Les tâches sont segmentées par le Master entre les différents Worker.
 Il s'agit d'un algorithme parallèle calculant Pi à partir de la technique de Monte Carlo.
+
+
+<br>
+
+## Test des temps d'exécutions
+
+
+<br>
+
+## Envoi de messages
+
+Uns socket est un fichier contenant des informations. Il s'agit d'un paquet d'octets avec des informations sur la source et le destinataire d'une donnée.

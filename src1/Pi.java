@@ -19,7 +19,7 @@ public class Pi
     {
 	long total=0;
 	// 10 workers, 50000 iterations each
-	total = new Master().doRun(5000000, 100);
+	total = new Master().doRun(500000, 32);
     }
 }
 
