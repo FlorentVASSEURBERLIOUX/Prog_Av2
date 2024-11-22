@@ -1,3 +1,5 @@
+import assignments.WriteToFile;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -18,7 +20,6 @@ public class Pi
 	long total=0;
 	// 10 workers, 50000 iterations each
 	total = new Master().doRun(5000000, 100);
-	System.out.println("total from Master = " + total);
     }
 }
 
@@ -62,8 +63,9 @@ class Master {
 	System.out.println("Available processors: " + numWorkers);
 	System.out.println("Time Duration (ms): " + (stopTime - startTime) + "\n");
 
-	System.out.println( (Math.abs((pi - Math.PI)) / Math.PI) +" "+ totalCount*numWorkers +" "+ numWorkers +" "+ (stopTime - startTime));
+	System.out.println("total from Master = " + total);
 
+	WriteToFile.put((Math.abs((pi - Math.PI)) / Math.PI) +";"+ totalCount*numWorkers +";"+ pi +";"+ total +";"+ (stopTime - startTime) +";"+ numWorkers +"\n", "pi.txt");
 	exec.shutdown();
 	return total;
     }
@@ -94,3 +96,4 @@ class Worker implements Callable<Long>
 	  return circleCount;
       }
 }
+// point total/ point dans la cible/ temps /erreur/ valeur approximer

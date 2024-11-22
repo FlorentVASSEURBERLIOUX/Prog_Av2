@@ -7,6 +7,7 @@ class PiMonteCarlo {
 	AtomicInteger nAtomSuccess;
 	int nThrows;
 	double value;
+	int nProcessors;
 	class MonteCarlo implements Runnable {
 		@Override
 		public void run() {
@@ -16,13 +17,13 @@ class PiMonteCarlo {
 				nAtomSuccess.incrementAndGet();
 		}
 	}
-	public PiMonteCarlo(int i) {
+	public PiMonteCarlo(int i, int proc) {
 		this.nAtomSuccess = new AtomicInteger(0);
 		this.nThrows = i;
 		this.value = 0;
+		this.nProcessors = proc;
 	}
 	public double getPi() {
-		int nProcessors = Runtime.getRuntime().availableProcessors();
 		ExecutorService executor = Executors.newWorkStealingPool(nProcessors);
 		for (int i = 1; i <= nThrows; i++) {
 			Runnable worker = new MonteCarlo();
@@ -34,17 +35,29 @@ class PiMonteCarlo {
 		value = 4.0 * nAtomSuccess.get() / nThrows;
 		return value;
 	}
+	public double getNbSuccesPoint() {
+		return nAtomSuccess.get();
+	}
+
 }
+
 public class Assignment102 {
 	public static void main(String[] args) {
-		PiMonteCarlo PiVal = new PiMonteCarlo(10000000);
+		int totalP = 100000;
+		int Nproc = 1;
+		PiMonteCarlo PiVal = new PiMonteCarlo(totalP,Nproc);
 		long startTime = System.currentTimeMillis();
 		double value = PiVal.getPi();
 		long stopTime = System.currentTimeMillis();
-		System.out.println("Approx value:" + value);
-		System.out.println("Difference to exact value of pi: " + (value - Math.PI));
-		System.out.println("Error: " + (value - Math.PI) / Math.PI * 100 + " %");
-		System.out.println("Available processors: " + Runtime.getRuntime().availableProcessors());
-		System.out.println("Time Duration: " + (stopTime - startTime) + "ms");
+		System.out.println("\nPi : " + value );
+		System.out.println("Error: " + (Math.abs((value - Math.PI)) / Math.PI) +"\n");
+
+		System.out.println("Ntot: " + totalP);
+		System.out.println("Available processors: " + PiVal.nProcessors);
+		System.out.println("Time Duration (ms): " + (stopTime - startTime) + "\n");
+
+		System.out.println("total from Master = " + PiVal.getNbSuccesPoint());
+		WriteToFile.put((Math.abs((value - Math.PI)) / Math.PI) +";"+ totalP +";"+ value +";"+ PiVal.getNbSuccesPoint() +";"+ (stopTime - startTime) +";"+ Nproc+"\n", "Assignement102.txt");
 	}
 }
+
