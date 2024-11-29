@@ -78,11 +78,55 @@ Il s'agit d'un algorithme parallèle calculant Pi à partir de la technique de M
 
 <br>
 
-## Test des temps d'exécutions
-
-
-<br>
-
 ## Envoi de messages
 
 Uns socket est un fichier contenant des informations. Il s'agit d'un paquet d'octets avec des informations sur la source et le destinataire d'une donnée.
+
+On se base sur le code distributedMC_step1_javaSocket présent dans le fichier src2.
+On exécute le code en attribuant des numéros de ports à chaque Worker, puis on execute le Master en lui indiquant les ports des Workers.
+
+On peut exécuter ce code en ligne de dommande dans le terminal :
+
+**D'abord on compile avec javac.**
+```bash
+javac WorkerSocket.java
+```
+
+
+```bash
+javac MasterSocket.java
+```
+
+**Ensuite on exécute en plaçant les arguments dans l'appel.**
+
+```bash
+java WorkerSocket 25545
+```
+
+```bash
+java MasterSocket
+```
+
+Le programme n'est pas complet, il faut donc lui ajouté la partie du calcul de MonteCarlo.
+Dans le fichier WorkerSocket, on peut donc ajouter le code du programme Pi.java :
+
+```java
+long circleCount = 0;
+Random prng = new Random();
+for (int j = 0; j < parseInt(str); j++)
+{
+    double x = prng.nextDouble();
+    double y = prng.nextDouble();
+    if ((x * x + y * y) < 1)  ++circleCount;
+}
+pWrite.println(""+circleCount);
+```
+
+On utilise pWrite pour écrire le résultat calculé par le Worker dans la Socket.
+Ainsi, le Master reçoit les informations et peut calculer le résultat final.
+ 
+
+<br>
+
+## Test des temps d'exécutions
+

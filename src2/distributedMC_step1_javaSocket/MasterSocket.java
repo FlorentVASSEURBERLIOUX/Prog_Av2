@@ -16,7 +16,7 @@ public class MasterSocket {
     public static void main(String[] args) throws Exception {
 
 	// MC parameters
-	int totalCount = 16000000; // total number of throws on a Worker
+	int totalCount = 512000000; // total number of throws on a Worker
 	int total = 0; // total number of throws inside quarter of disk
 	double pi; 
 
@@ -37,7 +37,7 @@ public class MasterSocket {
 	catch(IOException ioE){
 	   ioE.printStackTrace();
 	}
-	
+	/*
 	for (int i=0; i<numWorkers; i++){
 	    System.out.println("Enter worker"+ i +" port : ");
 	    try{
@@ -48,6 +48,7 @@ public class MasterSocket {
 		ioE.printStackTrace();
 	    }
 	}
+	 */
 
        //create worker's socket
        for(int i = 0 ; i < numWorkers ; i++) {
@@ -59,7 +60,7 @@ public class MasterSocket {
        }
 
        String message_to_send;
-       message_to_send = String.valueOf(totalCount);
+       message_to_send = String.valueOf(totalCount/numWorkers);
 
        String message_repeat = "y";
 
@@ -83,7 +84,7 @@ public class MasterSocket {
 	   for(int i = 0 ; i < numWorkers ; i++) {
 	       total += Integer.parseInt(tab_total_workers[i]);
 	   }
-	   pi = 4.0 * total / totalCount / numWorkers;
+	   pi = 4.0 * total / totalCount;
 
 	   stopTime = System.currentTimeMillis();
 
@@ -96,8 +97,11 @@ public class MasterSocket {
 	   
 	   System.out.println( (Math.abs((pi - Math.PI)) / Math.PI) +" "+ totalCount*numWorkers +" "+ numWorkers +" "+ (stopTime - startTime));
 
+	   assignments.WriteToFile.put((Math.abs((pi - Math.PI)) / Math.PI) +";"+ totalCount*numWorkers +";"+ pi +";"+ total +";"+ (stopTime - startTime) +";"+ numWorkers +"\n", "distributedMC.txt");
+
 	   System.out.println("\n Repeat computation (y/N): ");
 	   try{
+		   total = 0;
 	       message_repeat = bufferRead.readLine();
 	       System.out.println(message_repeat);
 	   }
