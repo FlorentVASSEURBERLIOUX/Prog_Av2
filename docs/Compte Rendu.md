@@ -130,3 +130,38 @@ Ainsi, le Master reçoit les informations et peut calculer le résultat final.
 
 ## Test des temps d'exécutions
 
+<br>
+
+### Assignement102
+
+On a testé le temps d'exécution de l'algorithme en fonction du nombre de points utilisés. On compare alors les temps d'exécutions pour vérifiées à partir de quelle valeur le temps d'exécution devient significatif.
+
+| Nombre de points | Temps d'exécution | Précision|
+|-----------------|-------------------|-----------|
+| 10^3            | 0 ms             | 10^-1      |
+| 10^4            | < 40 ms          | 10^-1      |
+| 10^5            | ~ 40 ms           | 10^-2     |
+| 10^6            | ~ 130 ms          | 10^-4     |
+| 10^7            | ~ 1300 ms         | 10^-4     |
+
+On en conclue que l'algorithme est efficace pour des valeurs de points supérieures à 10^6.
+
+De ce fait, on utiliseras un nombre de point supérieur à 10 millions pour nos futurs tests.
+
+<br><br>
+
+### Pi
+
+Comme pour le code précédent, on a testé le temps d'exécution de l'algorithme en fonction du nombre de points utilisés. On compare alors les temps d'exécutions pour vérifiées à partir de quelle valeur le temps d'exécution devient significatif.
+
+| Nombre de points | Temps d'exécution | Précision|
+|-----------------|-------------------|-----------|
+| 10^3            | 0 ms             | 10^-1      |
+| 10^4            | < 50 ms          | 10^-1      |
+| 10^5            | < 50 ms           | 10^-2     |
+| 10^6            | ~ 90 ms          | 10^-4     |
+| 10^7            | ~ 1000 ms         | 10^-5     |
+
+Une nouvelle fois, on en conclue que l'algorithme est efficace pour des valeurs de points supérieures à 10^6.
+
+De ce fait, on utiliseras un nombre de point supérieur à 10 millions pour nos futurs tests.

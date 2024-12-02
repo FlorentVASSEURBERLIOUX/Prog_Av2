@@ -15,12 +15,21 @@ import java.util.concurrent.Future;
  */
 public class Pi 
 {
-    public static void main(String[] args) throws Exception 
-    {
-	long total=0;
-	// 10 workers, 50000 iterations each
-	total = new Master().doRun(500000, 32);
-    }
+    public static void main(String[] args) throws Exception
+	{
+		int[] totalCounts = {1000000,2000000,4000000,8000000,16000000,32000000};
+		int[] numWorkersList = {8};
+		int repeat_code = 10;
+
+		for (int totalCount : totalCounts) {
+			for (int numWorkers : numWorkersList) {
+				System.out.println("Running simulation with totalCount = " + totalCount + " and numWorkers = " + numWorkers);
+				for (int i = 0; i < repeat_code; i++) {
+					new Master().doRun((int)(totalCount/numWorkers), numWorkers);
+				}
+			}
+		}
+	}
 }
 
 /**
@@ -96,4 +105,3 @@ class Worker implements Callable<Long>
 	  return circleCount;
       }
 }
-// point total/ point dans la cible/ temps /erreur/ valeur approximer
