@@ -165,3 +165,6 @@ Comme pour le code précédent, on a testé le temps d'exécution de l'algorithm
 Une nouvelle fois, on en conclue que l'algorithme est efficace pour des valeurs de points supérieures à 10^6.
 
 De ce fait, on utiliseras un nombre de point supérieur à 10 millions pour nos futurs tests.
+
+
+<img height="650" width="1280" src="img/Figure_1.png" title="images de scalabilité"/>
