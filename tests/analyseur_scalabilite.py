@@ -1,11 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-file_path1 = 'C:/Users/Flore/Desktop/Prog_Av2/tests/pi.txt'
-file_path2 = 'C:/Users/Flore/Desktop/Prog_Av2/tests/assignement102.txt'
+file_path1 = 'pi.txt'
+file_path2 = 'assignement102.txt'
 
 def faible_speedup(ax, df):
-    df_filtered = df[df['Npoint'] != "12000000"]
+    df_filtered = df[df['Npoint'] != 12000000]
     df_filtered['tempsMilis'] = df_filtered['tempsMilis'].astype(int)
     df_filtered['Nproc'] = df_filtered['Nproc'].astype(int)
 
@@ -15,7 +15,7 @@ def faible_speedup(ax, df):
     df_mean['speedup'] = sequential_time / df_mean['tempsMilis']
 
     ax.plot(df_mean['Nproc'], df_mean['speedup'], marker='o', linestyle='-', color='r')
-    ax.plot([1, 12], [1, 12], '--b', label='Speedup idéal')
+    ax.plot([1, 32], [1, 1], '--b', label='Speedup idéal')
     ax.legend()
     ax.set_xlabel('Nombre de processus (Nproc)')
     ax.set_ylabel('Speed-up')
@@ -45,13 +45,14 @@ def forte_speedup(ax, df):
 
 def forte(ax, df):
     df_filtered = df[df['Npoint'] == "12000000"]
+    print(df_filtered)
 
     df_filtered['tempsMilis'] = df_filtered['tempsMilis'].astype(int)
     df_filtered['Nproc'] = df_filtered['Nproc'].astype(int)
 
     df_mean = df_filtered.groupby('Nproc')['tempsMilis'].mean().reset_index()
 
-    ax.plot(df_mean['Nproc'], df_mean['tempsMilis'], marker='o', linestyle='-', color='b')
+    ax.plot(df_mean['Nproc'], df_mean['tempsMilis'], marker='o', linestyle='-', color='g')
     ax.set_xlabel('Nombre de processus (Nproc)')
     ax.set_ylabel('Temps d\'exécution moyen (ms)')
     ax.set_title('Scalabilité forte : Temps d\'exécution')
@@ -59,14 +60,15 @@ def forte(ax, df):
 
 
 def faible(ax, df):
-    df_filtered = df[df['Npoint'] != "12000000"]
+    df_filtered = df[df['Npoint'] != 12000000]
+    print(df_filtered)
 
     df_filtered['tempsMilis'] = df_filtered['tempsMilis'].astype(int)
     df_filtered['Nproc'] = df_filtered['Nproc'].astype(int)
 
     df_mean = df_filtered.groupby('Nproc')['tempsMilis'].mean().reset_index()
 
-    ax.plot(df_mean['Nproc'], df_mean['tempsMilis'], marker='o', linestyle='-', color='b')
+    ax.plot(df_mean['Nproc'], df_mean['tempsMilis'], marker='o', linestyle='-', color='g')
     ax.set_xlabel('Nombre de processus (Nproc)')
     ax.set_ylabel('Temps d\'exécution moyen (ms)')
     ax.set_title('Scalabilité faible : Temps d\'exécution')
