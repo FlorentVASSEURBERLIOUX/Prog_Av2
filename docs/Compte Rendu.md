@@ -17,19 +17,19 @@ Ce rapport expliquera aussi les choix effectuer dans les TP.
 
 ## Technique de Monte Carlo
 
-Soit \( A_{c} = 1 \) et un quart de disque de rayon \( r = 1 \) :
+Soit $$\( A_{c} = 1 \)$$ et un quart de disque de rayon $$\( r = 1 \)$$ :
 
 $$
 \[ A_{\text{quart disque}} = \frac{\pi r^2}{4} = \frac{\pi}{4} \]
 $$
 
-Soit \( l \) le côté d’un carré de côté \( l = 1 \) :
+Soit $$\( l \$$) le côté d’un carré de côté $$\( l = 1 \)$$ :
 
 $$
 \[ A_{c} = r^2 = 1 \]
 $$
 
-Soit les points $$\( X_{i} \)$$ de coordonnées \((x, y)\), sont tirés selon une loi uniforme sur \([0, 1]\). La probabilité que \( X \) soit tiré dans le quart de disque est :
+Soit les points $$\( X_{i} \)$$ de coordonnées $$\((x, y)\)$$, sont tirés selon une loi uniforme sur $$\([0, 1]\)$$. La probabilité que $$\( X \)$$ soit tiré dans le quart de disque est :
 
 $$
 \[ P = \frac{A_{\text{quart disque}}}{A_{c}} = \frac{\pi/4}{1} = \frac{\pi}{4} \]
@@ -41,11 +41,11 @@ $$
 <i>**Sources :** [wikipedia.org](https://de.wikipedia.org/wiki/Datei:Pi_monte_carlo_all.svg) </i>
 
 
-Tirages aléatoires dans un carré de côté \( n = 1 \).
+Tirages aléatoires dans un carré de côté $$\( n = 1 \)$$.
 
-On effectue \( n_{tot} \) tirages aléatoires. Soit \( n_{c} \) le nombre de points tirés dans le quart de disque.
+On effectue $$\( n_{tot} \)$$ tirages aléatoires. Soit $$\( n_{c} \$$) le nombre de points tirés dans le quart de disque.
 
-Si \( n_{tot} \) est grand, alors on peut approximer \( P \) par :
+Si $$\( n_{tot} \)$$ est grand, alors on peut approximer $$\( P \)$$ par :
 
 $$
 \[ P = \frac{n_c}{n_{tot}} \approx \frac{\pi}{4} \]
