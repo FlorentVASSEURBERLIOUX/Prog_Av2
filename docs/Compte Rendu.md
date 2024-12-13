@@ -19,7 +19,9 @@ Ce rapport expliquera aussi les choix effectuer dans les TP.
 
 Soit \( A_{c} = 1 \) et un quart de disque de rayon \( r = 1 \) :
 
+$$
 \[ A_{\text{quart disque}} = \frac{\pi r^2}{4} = \frac{\pi}{4} \]
+$$
 
 Soit \( l \) le côté d’un carré de côté \( l = 1 \) :
 
