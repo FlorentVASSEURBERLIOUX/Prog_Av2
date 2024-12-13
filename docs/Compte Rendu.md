@@ -25,12 +25,15 @@ $$
 
 Soit \( l \) le côté d’un carré de côté \( l = 1 \) :
 
+$$
 \[ A_{c} = r^2 = 1 \]
+$$
 
-Soit les points \( X_{i} \) de coordonnées \((x, y)\), sont tirés selon une loi uniforme sur \([0, 1]\). La probabilité que \( X \) soit tiré dans le quart de disque est :
+Soit les points $$\( X_{i} \)$$ de coordonnées \((x, y)\), sont tirés selon une loi uniforme sur \([0, 1]\). La probabilité que \( X \) soit tiré dans le quart de disque est :
 
+$$
 \[ P = \frac{A_{\text{quart disque}}}{A_{c}} = \frac{\pi/4}{1} = \frac{\pi}{4} \]
-
+$$
 
 ### Représentation graphique
 <img height="400" width="400" src="img/exempleMonteCarlo.svg" title="graphe de Monte Carlo" style="background-color: white;" />
@@ -44,11 +47,15 @@ On effectue \( n_{tot} \) tirages aléatoires. Soit \( n_{c} \) le nombre de poi
 
 Si \( n_{tot} \) est grand, alors on peut approximer \( P \) par :
 
+$$
 \[ P = \frac{n_c}{n_{tot}} \approx \frac{\pi}{4} \]
+$$
 
 D'où :
 
+$$
 \[ \pi \approx 4 \times \frac{n_c}{n_{tot}} \]
+$$
 
 <br>
 <br>
