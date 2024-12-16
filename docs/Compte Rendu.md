@@ -296,13 +296,13 @@ $$
 T_1 = T_t \quad \text{et} \quad T_a = T_p
 $$
 
-Dans le deuxième cas, nous considèrons un parallélisme idéal où le temps d'exécution pour \( p \) processus est donné par \( T_p = T_t \), et \( T_a = \hat{T_p} \), où \( \hat{T_p} \) est le temps d'exécution mesuré sur \( p \) processus. Le temps idéal en scalabilité forte est :
+Dans le deuxième cas, nous considèrons un parallélisme idéal où le temps d'exécution pour $$\( p \)$$ processus est donné par $$\( T_p = T_t \)$$, et $$\( T_a = \hat{T_p} \)$$, où $$\( \hat{T_p} \)$$ est le temps d'exécution mesuré sur $$\( p \)$$ processus. Le temps idéal en scalabilité forte est :
 
 $$
 T_p = p T_1
 $$
 
-Nous évaluons ensuite l'écart entre le temps réel \( \hat{T_p} \) et le temps idéal \( T_p \).
+Nous évaluons ensuite l'écart entre le temps réel $$\( \hat{T_p} \)$$ et le temps idéal $$\( T_p \)$$.
 
 <br>
 
@@ -316,12 +316,26 @@ L'analyse de la scalabilité de l'algorithme Assignement102 est compliqué et fa
 
 <br><br>
 
-## Scalabilité partagée
+## Scalabilité distribué
 
 <br><br>
 
 ## Evaluation numérique
 
+### Convergence de Pi
 
+Il est necessaire de vérifier à présent si la notion d' *Effectivness* dans la norme ISO 25010 est respecté.
+
+Pour celà, on s'assure dans un permier temps que la valeur de Pi qui est calculé possède une erreur faible.
+En effet, dans le fichier CSV associé à Pi.java (pi.txt) on a une colonne appelé "Error".
+On peut alors constater que l'erreur de Pi dépend du nombre de point utilisé pour le calcul, soit de la taille du problème.
+
+<img height="400" width="400" src="img/Figure_2.png" title="graphe d'erreurs de pi"/>
+
+Sur le graphe ci-dessus, on diférencie les points en bleu, qui représentent pour chaque test le rapport entre un ordre de grandeur de point et l'ordre de son erreur, des points en noirs, qui sont les médianes d'ordre d'erreur des points bleus regroupés par ordre de grandeur de point.
+
+Ainsi, on constate que la valeur de Pi tends à 
+
+### Vérification de la randomisation
 
 <br><br>
