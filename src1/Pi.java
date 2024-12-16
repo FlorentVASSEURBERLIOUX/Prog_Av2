@@ -1,5 +1,3 @@
-import assignments.WriteToFile;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -17,15 +15,15 @@ public class Pi
 {
     public static void main(String[] args) throws Exception
 	{
-		int[] totalCounts = {1000000,2000000,4000000,8000000,16000000,32000000};
-		int[] numWorkersList = {8};
+		long[] totalCounts = {102400000};
+		long[] numWorkersList = {8};
 		int repeat_code = 10;
 
-		for (int totalCount : totalCounts) {
-			for (int numWorkers : numWorkersList) {
+		for (long totalCount : totalCounts) {
+			for (long numWorkers : numWorkersList) {
 				System.out.println("Running simulation with totalCount = " + totalCount + " and numWorkers = " + numWorkers);
-				for (int i = 0; i < repeat_code; i++) {
-					new Master().doRun((int)(totalCount/numWorkers), numWorkers);
+				for (long i = 0; i < repeat_code; i++) {
+					new Master().doRun((int)(totalCount/numWorkers), (int)numWorkers);
 				}
 			}
 		}
@@ -102,6 +100,7 @@ class Worker implements Callable<Long>
 		  double y = prng.nextDouble();
 		  if ((x * x + y * y) < 1)  ++circleCount;
 	      }
+	  System.out.println("total from Worker = " + circleCount);
 	  return circleCount;
       }
 }

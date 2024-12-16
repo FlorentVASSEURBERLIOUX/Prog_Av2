@@ -1,5 +1,4 @@
 // Estimate the value of Pi using Monte-Carlo Method, using parallel program
-package assignments;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -43,7 +42,7 @@ class PiMonteCarlo {
 
 public class Assignment102 {
 	public static void main(String[] args) {
-		int[] totalCounts = {1000000,2000000,4000000,8000000,16000000,32000000};
+		int[] totalCounts = {64000000,128000000};
 		int[] numWorkersList = {8};
 		int repeat_code = 10;
 
