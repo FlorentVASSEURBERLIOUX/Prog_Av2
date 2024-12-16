@@ -252,7 +252,7 @@ De ce fait, on utiliseras un nombre de point supérieur à 10 millions pour nos 
 
 <br><br>
 
-### Scalabilité
+## Scalabilité partagée
 
 On a testé la scalabilité de l'algorithme en fonction du nombre de points utilisés.
 
@@ -264,7 +264,7 @@ On a, la scalabilité forte en haut, et la scalabilité faible en bas.
 
 <br>
 
-**Analyse de la Scalabilité forte**
+### Analyse de la Scalabilité forte
 
 On constate que l'algorithme Pi est plus efficace que l'algorithme Assignement102.
 En effet, pour la scalabilité forte le speedup de Pi est plus proche du speedup idéal que celui de Assignement102.
@@ -275,7 +275,7 @@ Pour Assignement102, on remarque que le speedup est catastrophique. En effet, le
 
 <br>
 
-**Analyse de la Scalabilité faible**
+### Analyse de la Scalabilité faible
 
 Pour la scalabilité faible, on remarque que le speedup des algorithmes Pi et Assignement102 est toujours inférieur à 1.
 On remarque cependant que Pi dépasse légerment 1 pourn 2 et 4 processus. Il s'agit vraisemblablement d'une marge d'erreur générée lors des tests.
@@ -285,10 +285,43 @@ Concernant  l'algorithme Assignement102, on remarque que le speedup est toujours
 
 <br>
 
-**Conclusion sur la scalabilité**
+### Efficacité sous la norme ISO
+
+On définit alors pour nos temps d'executions, leur rapport avec les normes imposé par l'ISO 25022 et l'ISO 25010.
+On constate que l'on peut différencier deux façon d'interpréter la norme d' *Efficiency*. On peut considérer l'évolution du temps d'execution par rapport au temps sur d'execution sur le programme à 1 processus (code séquentiel), ou la différence entre le speedup idéal et le speedup actuel pour obtenir l'erreur. Attention, sur le premier cas, on cherche un nombre le plus grand possible pour valider la norme, alors que dans le second, on cherche un nombre le plus faible possible.
+
+Dans le premier cas, nous comparons notre code parallèle avec le code séquentiel en posant :
+
+$$
+T_1 = T_t \quad \text{et} \quad T_a = T_p
+$$
+
+Dans le deuxième cas, nous considèrons un parallélisme idéal où le temps d'exécution pour \( p \) processus est donné par \( T_p = T_t \), et \( T_a = \hat{T_p} \), où \( \hat{T_p} \) est le temps d'exécution mesuré sur \( p \) processus. Le temps idéal en scalabilité forte est :
+
+$$
+T_p = p T_1
+$$
+
+Nous évaluons ensuite l'écart entre le temps réel \( \hat{T_p} \) et le temps idéal \( T_p \).
+
+<br>
+
+### Conclusion sur la scalabilité
 
 On peut conclure que l'algorithme Pi est plus efficace que l'algorithme Assignement102. Sa scalabilité, faible comme forte, est meilleure que celle de l'algorithme Assignement102. Cela s'explique par le fait que l'algorithme Pi est de paradygme Master/Worker, ce qui permet d'exploiter pleinement les ressources de la machine.
 
 En ce qui concerne l'algorithme Assignement102, sa scalabilité est très mauvaise, et celà se ressent lors de l'exécution du programme. Cela s'explique par le fait que l'algorithme Assignement102 est de paradygme d'itération parralèle, ce qui ne permet pas d'exploiter pleinement les ressources de la machine. L'accès trop fréquent à la ressource critique (nAtomSuccess) rends le programme très lent.
 
 L'analyse de la scalabilité de l'algorithme Assignement102 est compliqué et fastidieuse car sa faible scalabilité rends les tests très longs.
+
+<br><br>
+
+## Scalabilité partagée
+
+<br><br>
+
+## Evaluation numérique
+
+
+
+<br><br>
