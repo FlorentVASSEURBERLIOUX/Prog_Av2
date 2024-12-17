@@ -250,6 +250,13 @@ Une nouvelle fois, on en conclue que l'algorithme est efficace pour des valeurs 
 
 De ce fait, on utiliseras un nombre de point supérieur à 10 millions pour nos futurs tests.
 
+On effecturas les tests de temps d'execution sur des machines avec une configuration matérielle identique :
+
+- **Processeur** : Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+- **RAM** : 32,0 GB
+
+On possède donc 8 coeurs par machines.
+
 <br><br>
 
 ## Scalabilité partagée
@@ -318,6 +325,61 @@ L'analyse de la scalabilité de l'algorithme Assignement102 est compliqué et fa
 
 ## Scalabilité distribué
 
+On a aussi réalisé une étude de la scalabilité distribuée de l'algorithme Pi.
+En effet, il est pertinent d'analyser le code se basant sur l'envoie de messagesvia sockets entre les processus.
+
+Les tests effectués pour le code distribué sont réalisé avec 12 machines de configuration identique.
+Sur les 8 coeurs possédées par chaque machine, on a fait tourner seulement 4 processus, ce qui fait un total de 48 processus.
+
+Pour chaque lignes des deux tableaux, le temps affiché correspond à la moyenne de plusieurs tests.
+
+
+### Analyse de la Scalabilité forte
+
+*Résultat des tests de scalabilité forte :*
+| Machines | Points totaux | Points / Worker | Nb Processeurs | Temps |
+|----------|---------------|-----------------|---------------|-------|
+| 1        | 192000000     | 192000000       | 1             | 5873  |
+| 1        | 192000000     | 96000000        | 2             | NC    |
+| 1        | 192000000     | 64000000        | 3             | NC    |
+| 1        | 192000000     | 48000000        | 4             | 1506  |
+| 2        | 192000000     | 24000000        | 8             | 756   |
+| 3        | 192000000     | 16000000        | 12            | 508   |
+| 4        | 192000000     | 12000000        | 16            | 385   |
+| 6        | 192000000     | 8000000         | 24            | 267   |
+| 8        | 192000000     | 6000000         | 32            | 206   |
+| 12       | 192000000     | 4000000         | 48            | 133   |
+
+On constate que l'algorithme distribué permet d'améliorer la scalabilité forte de l'algorithme Pi.
+En effet, le speedup de l'algorithme distribué est plus proche du speedup idéal que celui de l'algorithme en mémoire partagée.
+Cela s'explique par le fait que l'algorithme distribué permet de répartir les calculs sur plusieurs machines, ainsi, on peut exploiter les ressources de plusieurs machines simultanément.
+
+
+<img height="400" width="400" src="img/Figure_4.png" title="images de scalabilité faible"/>
+
+### Analyse de la Scalabilité faible
+
+*Résultat des tests de scalabilité faible :*
+| Machines | Points totaux | Points / Worker | Nb Processeurs | Temps |
+|----------|---------------|-----------------|---------------|-------|
+| 1        | 4000000       | 4000000         | 1             | 129   |
+| 1        | 8000000       | 4000000         | 2             | NC    |
+| 1        | 12000000      | 4000000         | 3             | NC    |
+| 1        | 16000000      | 4000000         | 4             | 140   |
+| 2        | 32000000      | 4000000         | 8             | 143   |
+| 3        | 48000000      | 4000000         | 12            | 136   |
+| 4        | 64000000      | 4000000         | 16            | 134   |
+| 6        | 96000000      | 4000000         | 24            | 139   |
+| 8        | 128000000     | 4000000         | 32            | 140   |
+| 12       | 192000000     | 4000000         | 48            | 141   |
+
+On constate aussi que l'algorithme distribué permet d'améliorer la scalabilité faible de l'algorithme Pi.
+Une nouvelle fois, le speedup de l'algorithme distribué est plus proche du speedup idéal que celui de l'algorithme en mémoire partagée.
+
+<img height="400" width="400" src="img/Figure_5.png" title="images de scalabilité forte"/>
+
+### Programmation à plusieurs niveaux
+
 <br><br>
 
 ## Evaluation numérique
@@ -361,8 +423,8 @@ On peut constater que le nombre de points générés est bien le différent pour
 De plus, bien que ces valeurs soient différentes, elles reste relativement proche les unes des autres, et donc que notre approche probabilis est fonctionnelle.
 
 En effet, en terme de probabilité : 
-- Pour **$$\( 102\,400\,000 \)$$ tirs** sur **$$\( 8 \)$$** processus, on obtient **$$\( 12\,800\,000 \)$$ tirs** par Workers.
-- Et, en considérant que **$$\[\frac{4}{\pi} \approx 0,785398\]$$** et que **$$\[12\,800\,000 \times 0,785398 \approx 10\,053\,097\]$$**.
-- Chaque Worker doit donc générer appromimative **$$\(10\,053\,097\)$$** points à l'intérieur du cercle de rayon 1. Ce qui est le cas ici.
+- Pour $$\( 102\,400\,000 \)$$ tirs sur $$\( 8 \)$$ processus, on obtient $$\( 12\,800\,000 \)$$ tirs par Workers.
+- Et, en considérant que $$\[\frac{4}{\pi} \approx 0,785398\]$$ et que $$\[12\,800\,000 \times 0,785398 \approx 10\,053\,097\]$$.
+- Chaque Worker doit donc générer appromimative $$\(10\,053\,097\)$$ points à l'intérieur du cercle de rayon 1. Ce qui est le cas ici.
 
 <br><br>
