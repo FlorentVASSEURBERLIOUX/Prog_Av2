@@ -330,12 +330,39 @@ Pour celà, on s'assure dans un permier temps que la valeur de Pi qui est calcul
 En effet, dans le fichier CSV associé à Pi.java (pi.txt) on a une colonne appelé "Error".
 On peut alors constater que l'erreur de Pi dépend du nombre de point utilisé pour le calcul, soit de la taille du problème.
 
-<img height="400" width="400" src="img/Figure_2.png" title="graphe d'erreurs de pi"/>
+<img height="400" width="400" src="img/Figure_3.png" title="graphe d'erreurs de pi"/>
 
 Sur le graphe ci-dessus, on diférencie les points en bleu, qui représentent pour chaque test le rapport entre un ordre de grandeur de point et l'ordre de son erreur, des points en noirs, qui sont les médianes d'ordre d'erreur des points bleus regroupés par ordre de grandeur de point.
 
-Ainsi, on constate que la valeur de Pi tends à 
+Ainsi, on constate que la valeur renvoyer par notre algorithme tends à converger vers la réelle valeur de Pi, et que l'erreur diminue en fonction du nombre de points utilisés pour le calcul.
+Aussi, on en conclue  que la valeur de Pi calculée par notre algorithme gagne un ordre de précision approximativement tout les 2 ordres de points utilisés :
+
+- *Points d'ordre* **10^6** : **10^-3** *d'erreur*.
+- *Points d'ordre* **10^7** : **10^-4** *d'erreur*.
+- *Points d'ordre* **10^8** : **10^-4** *d'erreur*.
+- *Points d'ordre* **10^9** : **10^-5** *d'erreur*.
+
+<br><br>
 
 ### Vérification de la randomisation
+
+A présent, onsouhaite vérifier que les points générés sont bien distribués de manière uniforme.
+En effet, la précision de notre algorithme dépend de la qualité de la randomisation des points.
+
+Le caractère d'*Effectivness* de la norme ISO 25010 est vérifié si les points sont bien distribués de manière uniforme, car, dans notre cas présent, on considère que notre algorithme est efficace si il jous fournit une valeur approximant Pi.
+Ainsi, on vérifie que la fonction aléatoire qui est utilisé ``Random.nextDouble()`` renvoie des points de coordonnées différentes à chaque fois qu'elle est appelée.
+
+L'image ci-dessous est une capture d'écran de la sortie de notre programme.
+Cette sortie montre pour chacun des Workers du programme, le nombre de points générés, ainsi que le nombre de points qui sont à l'intérieur du cercle de rayon 1.
+
+<img height="400" width="400" src="img/Figure_2.png" title="image des résultats de la vérification de la randomisation"/>
+
+On peut constater que le nombre de points générés est bien le différent pour chaque Worker, et donc que la fonction aléatoire est bien appelée de manière indépendante.
+De plus, bien que ces valeurs soient différentes, elles reste relativement proche les unes des autres, et donc que notre approche probabilis est fonctionnelle.
+
+En effet, en terme de probabilité : 
+- Pour **$$\( 102\,400\,000 \)$$ tirs** sur **$$\( 8 \)$$** processus, on obtient **$$\( 12\,800\,000 \)$$ tirs** par Workers.
+- Et, en considérant que **$$\[\frac{4}{\pi} \approx 0,785398\]$$** et que **$$\[12\,800\,000 \times 0,785398 \approx 10\,053\,097\]$$**.
+- Chaque Worker doit donc générer appromimative **$$\(10\,053\,097\)$$** points à l'intérieur du cercle de rayon 1. Ce qui est le cas ici.
 
 <br><br>
