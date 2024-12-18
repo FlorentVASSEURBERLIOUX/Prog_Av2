@@ -29,12 +29,12 @@ Ce rapport expliquera aussi les choix effectuer dans les TP.
    - [Assignement102](#assignement102-1)
    - [Pi](#pi-1)
    - [Configuration matérielle](#config-1)
-6. [Scalabilité partagée](#scalabilité-partagée)
+6. [Scalabilité des programmes en mémoire partagée](#scalabilité-partagée)
    - [Analyse de la Scalabilité forte](#analyse-de-la-scalabilité-forte)
    - [Analyse de la Scalabilité faible](#analyse-de-la-scalabilité-faible)
    - [Efficacité sous la norme ISO](#efficacité-sous-la-norme-iso)
    - [Conclusion sur la scalabilité](#conclusion-sur-la-scalabilité)
-7. [Scalabilité distribuée](#scalabilité-distribuée)
+7. [Scalabilité des programmes en mémoire distribuée](#scalabilité-distribuée)
    - [Analyse de la Scalabilité forte](#analyse-de-la-scalabilité-forte-distribuée)
    - [Analyse de la Scalabilité faible](#analyse-de-la-scalabilité-faible-distribuée)
 7. [Evaluation numérique](#evaluation-numérique)
@@ -290,7 +290,7 @@ On possède donc 8 coeurs par machines.
 
 <br><br>
 
-## 6. Scalabilité partagée
+## 6. Scalabilité des programmes en mémoire partagée
 
 On a testé la scalabilité de l'algorithme en fonction du nombre de points utilisés.
 
@@ -354,7 +354,7 @@ L'analyse de la scalabilité de l'algorithme Assignement102 est compliqué et fa
 
 <br><br>
 
-## 7. Scalabilité distribué
+## 7. Scalabilité des programmes en mémoire distribué
 
 On a aussi réalisé une étude de la scalabilité distribuée de l'algorithme Pi.
 En effet, il est pertinent d'analyser le code se basant sur l'envoie de messagesvia sockets entre les processus.
