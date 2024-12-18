@@ -355,7 +355,7 @@ En effet, le speedup de l'algorithme distribué est plus proche du speedup idéa
 Cela s'explique par le fait que l'algorithme distribué permet de répartir les calculs sur plusieurs machines, ainsi, on peut exploiter les ressources de plusieurs machines simultanément.
 
 
-<img height="400" width="400" src="img/Figure_4.png" title="images de scalabilité faible"/>
+<img height="400" width="400" src="img/Figure_5.png" title="images de scalabilité faible"/>
 
 ### Analyse de la Scalabilité faible
 
@@ -376,9 +376,11 @@ Cela s'explique par le fait que l'algorithme distribué permet de répartir les 
 On constate aussi que l'algorithme distribué permet d'améliorer la scalabilité faible de l'algorithme Pi.
 Une nouvelle fois, le speedup de l'algorithme distribué est plus proche du speedup idéal que celui de l'algorithme en mémoire partagée.
 
-<img height="400" width="400" src="img/Figure_5.png" title="images de scalabilité forte"/>
+<img height="400" width="400" src="img/Figure_4.png" title="images de scalabilité forte"/>
 
 ### Programmation à plusieurs niveaux
+
+En utilisant la programmation à plusieurs niveaux, il est même possible d'améliorer encore les performances de l'algorithme.
 
 <br><br>
 
