@@ -13,9 +13,36 @@ Ce rapport expliquera aussi les choix effectuer dans les TP.
 
 ---
 
+# Sommaire
+1. [Technique de Monte Carlo](#technique-de-monte-carlo)
+   - [Représentation graphique](#représentation-graphique)
+   - [Algorithme Monte Carlo en parallélisme](#algorithme-monte-carlo-en-parallélisme)
+2. [Assignement102](#assignement102)
+   - [Dépendences](#dépendences)
+   - [Algorithme](#algorithme-assignement102)
+3. [Pi](#pi)
+   - [Dépendences](#dépendences-1)
+   - [Algorithme](#algorithme-pi)
+4. [Envoi de messages](#envoi-de-messages)
+   - [Algorithme](#algorithme-envoi-de-messages)
+5. [Test des temps d'exécutions](#test-des-temps-dexécutions)
+   - [Assignement102](#assignement102-1)
+   - [Pi](#pi-1)
+   - [Configuration matérielle](#config-1)
+6. [Scalabilité partagée](#scalabilité-partagée)
+   - [Analyse de la Scalabilité forte](#analyse-de-la-scalabilité-forte)
+   - [Analyse de la Scalabilité faible](#analyse-de-la-scalabilité-faible)
+   - [Efficacité sous la norme ISO](#efficacité-sous-la-norme-iso)
+   - [Conclusion sur la scalabilité](#conclusion-sur-la-scalabilité)
+7. [Scalabilité distribuée](#scalabilité-distribuée)
+   - [Analyse de la Scalabilité forte](#analyse-de-la-scalabilité-forte-distribuée)
+   - [Analyse de la Scalabilité faible](#analyse-de-la-scalabilité-faible-distribuée)
+
+
+---
 <br><br><br>
 
-## Technique de Monte Carlo
+## 1. Technique de Monte Carlo
 
 Soit $$\( A_{c} = 1 \)$$ et un quart de disque de rayon $$\( r = 1 \)$$ :
 
@@ -79,7 +106,7 @@ Les itérations de la boucle **T0** sont indépendantes entre elles, ce qui perm
 
 <br>
 
-## Assignement102
+## 2. Assignement102
 
 Ce code calcul une valeur appromimative de PI à partir de la technique de Monte Carlo.
 
@@ -120,7 +147,7 @@ Cette approche permet de réduire le temps de calcul total et améliore l'effica
 
 <br>
 
-## Pi
+## 3. Pi
 
 Ce code calcul une valeur appromimative de PI à partir de la technique de Monte Carlo.
 
@@ -150,7 +177,7 @@ Ce mode de fonctionnement permet une parallélisation efficace du calcul de Mont
 
 <br>
 
-## Envoi de messages
+## 4. Envoi de messages
 
 Uns socket est un fichier contenant des informations. Il s'agit d'un paquet d'octets avec des informations sur la source et le destinataire d'une donnée.
 
@@ -212,7 +239,7 @@ Il s'agit du même algorithme que le code "Pi", mais ici, la communication entre
 
 <br>
 
-## Test des temps d'exécutions
+## 5. Test des temps d'exécutions
 
 <br>
 
@@ -250,6 +277,8 @@ Une nouvelle fois, on en conclue que l'algorithme est efficace pour des valeurs 
 
 De ce fait, on utiliseras un nombre de point supérieur à 10 millions pour nos futurs tests.
 
+### Configuration marérielle
+
 On effecturas les tests de temps d'execution sur des machines avec une configuration matérielle identique :
 
 - **Processeur** : Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
@@ -259,7 +288,7 @@ On possède donc 8 coeurs par machines.
 
 <br><br>
 
-## Scalabilité partagée
+## 6. Scalabilité partagée
 
 On a testé la scalabilité de l'algorithme en fonction du nombre de points utilisés.
 
@@ -323,7 +352,7 @@ L'analyse de la scalabilité de l'algorithme Assignement102 est compliqué et fa
 
 <br><br>
 
-## Scalabilité distribué
+## 7. Scalabilité distribué
 
 On a aussi réalisé une étude de la scalabilité distribuée de l'algorithme Pi.
 En effet, il est pertinent d'analyser le code se basant sur l'envoie de messagesvia sockets entre les processus.
@@ -384,7 +413,7 @@ En utilisant la programmation à plusieurs niveaux, il est même possible d'amé
 
 <br><br>
 
-## Evaluation numérique
+## 8. Evaluation numérique
 
 ### Convergence de Pi
 
