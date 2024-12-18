@@ -428,39 +428,35 @@ En utilisant la programmation à plusieurs niveaux, il est même possible d'amé
 | 12      | 48    | 192000000 | 16000000      | 4000000         | 48              | 53    |
 
 En effet, on constate lors des tests en multi-niveaux que le temps d'excution des tests de scalabilitées fortes baisses proportionnellement au nombre de worker :
+
 $$
-\[
-\frac{106}{106} = 1
-\]
+\[\frac{106}{106} = 1\]
 $$
+
 $$
-\[
-\frac{106}{60} \approx 1,76
-\]
+\[\frac{106}{60} \approx 1,76\]
 $$
+
 $$
-\[
-\frac{106}{44} \approx 2,4
-\]
+\[\frac{106}{44} \approx 2,4\]
 $$
+
 On remarque toujours un décrochage de notre speedup par rapport au speedup idéal
 
 On constate aussi lors de ces tests que le temps d'excution des tests de scalabilitées faibles reste stable :
+
 $$
-\[
-\frac{52}{52} = 1
-\]
+\[\frac{52}{52} = 1\]
 $$
+
 $$
-\[
-\frac{52}{50} \approx 1,04
-\]
+\[\frac{52}{50} \approx 1,04\]
 $$
+
 $$
-\[
-\frac{53}{52} \approx 0,98
-\]
+\[\frac{53}{52} \approx 0,98\]
 $$
+
 Anisi, on voit bien que malgrès la multiplication par 4 du nombre de points et de processus, le speedup reste proche de 1.
 En ce qui concerne la scalabilité faible, la programmation en multi-niveaux performe mieux que la programmation en distribué simple.
 
