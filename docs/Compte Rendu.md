@@ -37,7 +37,9 @@ Ce rapport expliquera aussi les choix effectuer dans les TP.
 7. [Scalabilité distribuée](#scalabilité-distribuée)
    - [Analyse de la Scalabilité forte](#analyse-de-la-scalabilité-forte-distribuée)
    - [Analyse de la Scalabilité faible](#analyse-de-la-scalabilité-faible-distribuée)
-
+7. [Evaluation numérique](#evaluation-numérique)
+   - [Convergence de Pi](#convergence-de-pi)
+   - [Vérification de la randomisation](#verification-de-la-randomisation)
 
 ---
 <br><br><br>
@@ -410,6 +412,58 @@ Une nouvelle fois, le speedup de l'algorithme distribué est plus proche du spee
 ### Programmation à plusieurs niveaux
 
 En utilisant la programmation à plusieurs niveaux, il est même possible d'améliorer encore les performances de l'algorithme.
+
+**Scalabilité forte du multi-noveaux**
+| Machine | Worker | Points totaux | Points / Master | Points / Worker | Nb Processeur | Temps |
+|---------|--------|---------------|-----------------|------------------|----------------|-------|
+| 12      | 12    | 192000000 | 16000000      | 16000000        | 12              | 106   |
+| 12      | 24    | 192000000 | 16000000      | 8000000         | 24              | 60    |
+| 12      | 48    | 192000000 | 16000000      | 4000000         | 48              | 44    |
+
+**Scalabilité faible du multi-niveaux**
+| Machine | Worker | Points totaux | Points / Master | Points / Worker | Nb Processeur | Temps |
+|---------|--------|---------------|-----------------|------------------|----------------|-------|
+| 12      | 12    | 48000000 | 16000000      | 4000000         | 12              | 52    |
+| 12      | 24    | 96000000 | 16000000      | 4000000         | 24              | 50    |
+| 12      | 48    | 192000000 | 16000000      | 4000000         | 48              | 53    |
+
+En effet, on constate lors des tests en multi-niveaux que le temps d'excution des tests de scalabilitées fortes baisses proportionnellement au nombre de worker :
+$$
+\[
+\frac{106}{106} = 1
+\]
+$$
+$$
+\[
+\frac{106}{60} \approx 1,76
+\]
+$$
+$$
+\[
+\frac{106}{44} \approx 2,4
+\]
+$$
+On remarque toujours un décrochage de notre speedup par rapport au speedup idéal
+
+On constate aussi lors de ces tests que le temps d'excution des tests de scalabilitées faibles reste stable :
+$$
+\[
+\frac{52}{52} = 1
+\]
+$$
+$$
+\[
+\frac{52}{50} \approx 1,04
+\]
+$$
+$$
+\[
+\frac{53}{52} \approx 0,98
+\]
+$$
+Anisi, on voit bien que malgrès la multiplication par 4 du nombre de points et de processus, le speedup reste proche de 1.
+En ce qui concerne la scalabilité faible, la programmation en multi-niveaux performe mieux que la programmation en distribué simple.
+
 
 <br><br>
 
